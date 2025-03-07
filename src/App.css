@@ -431,7 +431,17 @@
 .content__form {
   display: flex;
   flex-direction: column;
-  row-gap: 14px;
+  gap: 14px;
+  max-width: 305px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+
+
 }
 
 .content__inputs {

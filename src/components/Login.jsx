@@ -48,6 +48,7 @@ const Login = () => {
   return (
     <div className="container">
       <form className="content__form" onSubmit={handleSubmit}>
+      <p className="title">Login </p>
         {error && <div className="text-red-500 mb-4 text-center">{error}</div>}
         <div className="content__inputs">
           <label>
@@ -74,7 +75,7 @@ const Login = () => {
         </button>
         <p className="mt-4 text-center">
           Don't have an account?{" "}
-          <NavLink to="/signup" className="text-yellow-200 hover:underline">
+          <NavLink to="/signup" className=" text-amber-600 hover:underline">
             Register here
           </NavLink>
         </p>
