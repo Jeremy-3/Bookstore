@@ -1,9 +1,11 @@
+
 .loader-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  width: 100vw;
+  /* max-height: 100%; */
+  max-width: 100vw;
 }
 
 .loader {
@@ -550,4 +552,196 @@
 .content__form button:active:not(:hover) {
   background: rgb(0, 149, 246);
   opacity: .7;
+}
+
+/* css for home page */
+.home-top{
+  /* background-color: greenyellow; */
+  display: flex;
+  gap: 50px;
+}
+.home-top .home-btn{
+  display: flex;
+  gap: 8px;
+
+}
+.home-top .home-btn button{
+  border: 2px solid #d9d9d9;
+  background-color: #d9d9d9;
+  border-radius: 12px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-right: 20px;
+  padding-left: 20px;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+.home-top .home-btn button:hover{
+  background-color: royalblue;
+  color: #ffc242;
+  border:royalblue;
+  transition: background-color 0.3s ease-in-out
+}
+.home-top .search-text{
+  padding-left: 220px;
+  margin-top: 20px;
+
+} 
+
+.home-top .search-text input{
+  border: 2px solid #d9d9d9;
+  background-color: #d9d9d9;
+  width: 420px;
+  border-radius: 12px;
+  /* /* padding-right: 30px; */
+  padding-left: 11px; 
+  /* margin-top: 10px; */
+  outline: none;
+}
+/* .home-top .search-text input button{
+  position: absolute;
+  right: 10px;
+} */
+.home-top .home-icons{
+  display: flex;
+  position:absolute;
+  right: 0px;
+  margin-top: 20px;
+  gap: 5px;
+  font-size: 20px;
+}
+.home-top .home-icons .person{
+  font-size: 40px;
+}
+.home-top .home-icons .person:hover{
+  color: royalblue;
+}
+.home-top .home-icons .twit:hover{
+  color: #00376b;
+}
+.home-top .home-icons .whats:hover{
+  color: lightgreen;
+}
+.home-top .home-icons .insta:hover{
+  color: purple;
+}
+
+/* home styling for the books */
+/* .home-two{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+  margin-top: 50px;
+}
+.home-two .book{
+  flex: 250px;
+ 
+  padding: 15px;
+
+}
+
+.home-two .book .book-img{
+  width: 200px;
+  height: 200px;
+  aspect-ratio: 1/1;
+  border-radius: 8px;
+  box-shadow: #6c7486;
+} */
+/* Section container */
+/* Section container */
+.home-two {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+  margin-top: 50px;
+}
+
+/* Individual book styling */
+.home-two .book {
+  flex: 250px; /* Each book takes up roughly 250px width */
+  position: relative; /* Establishes a positioning context for the overlay */
+  padding: 15px;
+  text-align: center; /* Center-align text inside the book */
+}
+
+/* Book image */
+.home-two .book .book-img {
+  width: 200px;
+  height: 200px;
+  aspect-ratio: 1 / 1; /* Ensures the image is square */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  transition: transform 0.3s ease; /* Smooth scaling effect on hover */
+}
+
+/* Hover effect for the image */
+.home-two .book:hover .book-img {
+  transform: scale(1.05); /* Slightly enlarge the image on hover */
+}
+
+/* Book title overlay */
+.home-two .book .book-title {
+  position: absolute; /* Position the title relative to the book container */
+  bottom: 10px; /* Place the title near the bottom of the image */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Perfectly center the text */
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  color: white; /* Text color */
+  padding: 5px 10px; /* Add padding around the text */
+  border-radius: 4px; /* Rounded corners for the title */
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.3s ease; /* Smooth fade-in effect */
+}
+
+/* Hover effect for the title */
+.home-two .book:hover .book-title {
+  opacity: 1; /* Show the title on hover */
+}
+
+/* Book description */
+.home-two .book .book-desc {
+  margin-top: 10px; /* Add spacing between the image and description */
+  font-size: 14px;
+  color: #555; /* Lighter text color for description */
+}
+
+
+/* Dropdown container */
+.dropdown-container {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Align to the right */
+  margin-bottom: 10px; /* Space between dropdown and books */
+}
+
+/* Label */
+label {
+  font-size: 14px;
+  color: #555;
+  margin-right: 10px; /* Space between label and dropdown */
+}
+
+/* Dropdown select */
+.dropdown {
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  background-color: #d9d9d9;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.dropdown:focus {
+  border-color: #ffc242; /* Highlight on focus */
 }

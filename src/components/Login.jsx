@@ -4,7 +4,7 @@ import { NavLink,useNavigate } from "react-router-dom";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -13,7 +13,12 @@ const Login = () => {
     console.log("Password:", password);
     console.log("User logged in :");
 
-    setError("");
+    setError(null);
+    
+  // const handleLogout = () =>{
+  //     localStorage.removeItem('access_token')
+  //     setIsLoggedIn(false)
+  //   }  
 
     try {
       const response = await fetch("/api/login", {
@@ -24,21 +29,21 @@ const Login = () => {
         body: JSON.stringify({ email, password }),
       });
 
-      if (response.ok) {
-        const data = await response.json();
-        console.log(data);
-
-        const { access_token } = data;
-        localStorage.setItem("access_token", access_token);
-
-        navigate("/home");
-      } else {
-        const errorData = await response.json();
-        setError(errorData.message || "Login failed. Please try again.");
+      if (!response.ok) {
+          // const errorData = await response.json();
+          throw new Error("An error occurred while trying to log in. Please try again.");
       }
+      else{
+        const data = await response.json();
+        localStorage.setItem("token",data.access_token)
+        console.log(data)
+        navigate("/home")                
+      } 
+     
+
     } catch (error) {
       console.error("Error", error);
-      setError("An error occurred while trying to log in. Please try again.");
+      setError(error.message);
     } finally {
       setEmail("");
       setPassword("");

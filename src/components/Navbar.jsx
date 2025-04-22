@@ -1,6 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 const Navbar = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+  useEffect(() => {
+    const token = localStorage.getItem("token")
+    if (token){
+      setIsLoggedIn(true)
+    }
+  },[])
+
+  const handleLogout = (e) => {
+    localStorage.removeItem("token")
+    setIsLoggedIn(false)
+  } 
+   
+
+
   return (
     <div className="navbar-container">
       <nav className="navbar">
@@ -21,14 +37,21 @@ const Navbar = () => {
             <NavLink to= "/contact">Contact us</NavLink>
           </li>
         </ul>
-        <div className="buttons">
-          <NavLink to='/signup' className="btn">
-            Sign up
-          </NavLink>
-          <NavLink to='/login' className="btn">
-            Login
-          </NavLink>
-        </div>
+           {!isLoggedIn ? (
+            <div className="buttons">
+            <NavLink to='/signup' className="btn">
+              Sign up
+            </NavLink>
+            <NavLink to='/login' className="btn">
+              Login
+            </NavLink>
+          </div>
+           ) : (
+            <div className="buttons">
+              <NavLink to="/login" className="btn" onClick={handleLogout}>Logout</NavLink>
+            </div>
+           )}
+       
       </nav>
     </div>
   );

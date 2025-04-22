@@ -5,6 +5,9 @@
 }
 body {
   font-family: "Arial", sans-serif;
-  background-color:slategrey;
+  /* background-color:slategrey; */
+  background-color: #fff;
+  max-width: 100%;
 }
+
 

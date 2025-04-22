@@ -8,6 +8,10 @@ import Signup from './components/Signup.jsx';
 import Login from './components/Login.jsx';
 import About from './components/About.jsx';
 import Contact from './components/Contact.jsx';
+import Authors from './components/Authors.jsx';
+import Books from './components/Books.jsx';
+import Users from './components/Users.jsx';
+import Bookstores from './components/Bookstores.jsx';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -20,6 +24,7 @@ function App() {
 
   return (
     <>
+ 
       <Navbar />
       {loading ? (
         <Loading />
@@ -30,8 +35,13 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/author" element={<Authors />} />
+          <Route path="/books" element={<Books />} />
+          <Route path="/users" element={<Users />} />
+          <Route path="/bookstores" element={<Bookstores />} />
         </Routes>
       )}
+
     </>
   );
 }
