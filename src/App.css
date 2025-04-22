@@ -662,73 +662,71 @@
   margin-top: 50px;
 }
 
-/* Individual book styling */
+
 .home-two .book {
-  flex: 250px; /* Each book takes up roughly 250px width */
-  position: relative; /* Establishes a positioning context for the overlay */
+  flex: 250px;
+  position: relative; 
   padding: 15px;
-  text-align: center; /* Center-align text inside the book */
+  /* text-align: center;  */
 }
 
 /* Book image */
 .home-two .book .book-img {
   width: 200px;
   height: 200px;
-  aspect-ratio: 1 / 1; /* Ensures the image is square */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  transition: transform 0.3s ease; /* Smooth scaling effect on hover */
+  aspect-ratio: 1 / 1; 
+  border-radius: 8px; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  transition: transform 0.3s ease;
 }
 
-/* Hover effect for the image */
+
 .home-two .book:hover .book-img {
-  transform: scale(1.05); /* Slightly enlarge the image on hover */
+  transform: scale(1.05); 
 }
 
 /* Book title overlay */
 .home-two .book .book-title {
-  position: absolute; /* Position the title relative to the book container */
-  bottom: 10px; /* Place the title near the bottom of the image */
-  left: 50%; /* Center horizontally */
-  transform: translateX(-50%); /* Perfectly center the text */
-  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
-  color: white; /* Text color */
-  padding: 5px 10px; /* Add padding around the text */
-  border-radius: 4px; /* Rounded corners for the title */
+  position: absolute; 
+  bottom: 10px; 
+  left: 30%; 
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white; 
+  padding: 5px 10px; 
+  border-radius: 4px; 
   font-size: 16px;
   font-weight: bold;
-  text-align: center;
-  opacity: 0; /* Hidden by default */
-  transition: opacity 0.3s ease; /* Smooth fade-in effect */
+  /* text-align: center; */
+  opacity: 0; 
+  transition: opacity 0.3s ease; 
 }
 
-/* Hover effect for the title */
 .home-two .book:hover .book-title {
-  opacity: 1; /* Show the title on hover */
+  opacity: 1;
 }
 
 /* Book description */
 .home-two .book .book-desc {
-  margin-top: 10px; /* Add spacing between the image and description */
+  margin-top: 10px; /
   font-size: 14px;
-  color: #555; /* Lighter text color for description */
+  color: #555; 
 }
 
 
-/* Dropdown container */
+
 .dropdown-container {
   margin-top: 20px;
   display: flex;
   align-items: center;
-  justify-content: flex-end; /* Align to the right */
-  margin-bottom: 10px; /* Space between dropdown and books */
+  justify-content: flex-end; 
 }
 
-/* Label */
+
 label {
   font-size: 14px;
   color: #555;
-  margin-right: 10px; /* Space between label and dropdown */
+  margin-right: 10px; 
 }
 
 /* Dropdown select */
@@ -743,5 +741,5 @@ label {
 }
 
 .dropdown:focus {
-  border-color: #ffc242; /* Highlight on focus */
+  border-color: #ffc242; 
 }
