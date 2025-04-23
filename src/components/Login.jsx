@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { NavLink,useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
+  const [submitting, setSubmitting] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -14,13 +15,14 @@ const Login = () => {
     console.log("User logged in :");
 
     setError(null);
-    
-  // const handleLogout = () =>{
-  //     localStorage.removeItem('access_token')
-  //     setIsLoggedIn(false)
-  //   }  
+
+    // const handleLogout = () 
+    //     localStorage.removeItem('access_token')
+    //     setIsLoggedIn(false)
+    //   }
 
     try {
+      setSubmitting(true);
       const response = await fetch("/api/login", {
         method: "POST",
         headers: {
@@ -28,23 +30,21 @@ const Login = () => {
         },
         body: JSON.stringify({ email, password }),
       });
-
+      console.log(response);
       if (!response.ok) {
-          // const errorData = await response.json();
-          throw new Error("An error occurred while trying to log in. Please try again.");
-      }
-      else{
+        const errorData = await response.json();
+        console.log(errorData);
+        setError(errorData.Message);
+      } else {
         const data = await response.json();
-        localStorage.setItem("token",data.access_token)
-        console.log(data)
-        navigate("/home")                
-      } 
-     
-
+        localStorage.setItem("token", data.access_token);
+        console.log(data);
+        navigate("/home");
+      }
     } catch (error) {
       console.error("Error", error);
-      setError(error.message);
     } finally {
+      setSubmitting(false);
       setEmail("");
       setPassword("");
     }
@@ -52,8 +52,8 @@ const Login = () => {
 
   return (
     <div className="container">
-      <form className="content__form" onSubmit={handleSubmit}>
-      <p className="title">Login </p>
+      <form className="content__form">
+        <p className="title">Login </p>
         {error && <div className="text-red-500 mb-4 text-center">{error}</div>}
         <div className="content__inputs">
           <label>
@@ -75,8 +75,9 @@ const Login = () => {
             <span>Password</span>
           </label>
         </div>
-        <button>
-          Log In
+
+        <button type="button" onClick={(e) => handleSubmit(e)}>
+          {submitting ? "Loading" : "Login"}
         </button>
         <p className="mt-4 text-center">
           Don't have an account?{" "}

@@ -41,7 +41,7 @@ const Home = () => {
   const filteredBooks = books
     .filter((book) =>
       book.title.toLowerCase().includes(searchQuery.toLowerCase())
-    ) // Match the title with the search query
+    ) 
     .filter((book) => (selectedGenre ? book.genre === selectedGenre : true)); 
 
   return (
@@ -49,7 +49,7 @@ const Home = () => {
       <section className="home-top">
         <div className="home-btn">
           <button>
-            <NavLink to="/author">Author</NavLink>
+            <NavLink to="/author">Authors</NavLink>
           </button>
           <button>
             <NavLink to="/bookstores">Bookstores</NavLink>
