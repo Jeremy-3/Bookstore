@@ -12,16 +12,17 @@ const Home = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
+    const sessionData = JSON.parse(localStorage.getItem("session"));
 
-    if (token) {
+    if (sessionData) {
+      const {access_token} = sessionData
       setIsLoggedIn(true);
       const fetchBooks = async () => {
         try {
           const res = await fetch("/api/books", {
             method: "GET",
             headers: {
-              Authorization: `Bearer ${token}`,
+              Authorization: `Bearer ${access_token}`,
             },
           });
 
@@ -100,11 +101,14 @@ const Home = () => {
           filteredBooks && filteredBooks.length > 0 ? (
             filteredBooks.map((book) => (
               <div key={book.id} className="book">
+                <NavLink to={`/books/${book.id}`}>
                 <img
                   src={book.book_img}
                   alt={book.title}
                   className="book-img"
                 />
+                </NavLink>
+                
                 <h3 className="book-title book-overlay">{book.title}</h3>
                 <p className="book-desc">{book.description}</p>
               </div>

@@ -12,6 +12,8 @@ import Authors from './components/Authors.jsx';
 import Books from './components/Books.jsx';
 import Users from './components/Users.jsx';
 import Bookstores from './components/Bookstores.jsx';
+import BookFromStore from './components/BookFromStore.jsx';
+import Admin from './components/Admin.jsx';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -36,9 +38,11 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/author" element={<Authors />} />
-          <Route path="/books" element={<Books />} />
+          <Route path="/books/:id" element={<Books />} />
           <Route path="/users" element={<Users />} />
           <Route path="/bookstores" element={<Bookstores />} />
+          <Route path="/bookstores/:storeId/books/:bookId" element={<BookFromStore />} />
+          <Route path="/admin-dashboard" element={<Admin />} />
         </Routes>
       )}
 

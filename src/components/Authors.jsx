@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { data, NavLink } from "react-router-dom";
 
 const Authors = () => {
   const [authors, setAuthors] = useState([]);
@@ -8,16 +8,18 @@ const Authors = () => {
 
   
   useEffect(() => {
-    const token = localStorage.getItem("token");
+    const sessionData = JSON.parse(localStorage.getItem("session"));
 
-    if (token) {
+
+    if (sessionData) {
+      const {access_token} = sessionData
       setIsLoggedIn(true);
       const fetchAuthors = async () => {
         try {
           const res = await fetch("/api/authors", {
             method: "GET",
             headers: {
-              Authorization: `Bearer ${token}`,
+              Authorization: `Bearer ${access_token}`,
             },
           });
 

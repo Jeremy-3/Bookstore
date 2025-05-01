@@ -5,7 +5,7 @@
   align-items: center;
   height: 100vh;
   /* max-height: 100%; */
-  max-width: 100vw;
+  width:100vw;
 }
 
 .loader {
@@ -206,7 +206,7 @@
     transform: rotateY(0deg);
   }
 }
-.navbar-container {
+.navbar-container { 
   padding: 10px;
   background-color: #d9d9d9;
 }
@@ -217,8 +217,10 @@
   justify-content: space-between;
 }
 
-.logo {
-  flex: 1; /* Push everything else to center & right */
+.logo,
+.nav-links,
+.buttons {
+  flex: 1;
 }
 .logo img {
   width: 50px;
@@ -230,7 +232,6 @@
   gap: 20px;
   list-style: none;
   padding: 0;
-  flex: 2;
   justify-content: center; /* Centering the menu */
 }
 
@@ -278,7 +279,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  max-width: 350px;
+  max-width: 90vw;
   background-color: #fff;
   padding: 20px;
   border-radius: 20px;
@@ -1015,4 +1016,196 @@ bookstores css */
 
 .stock span:nth-child(3) {
   color: red;
+}
+
+.book-detail {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.book-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.book-image {
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.book-info {
+  flex-grow: 1;
+}
+
+.book-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.book-author,
+.book-genre,
+.book-price,
+.book-stock {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.book-description {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #666;
+}
+
+.error {
+  color: red;
+  font-size: 16px;
+  text-align: center;
+}
+
+
+
+.users-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.login-message {
+  color: #333;
+  font-size: 16px;
+  text-align: center;
+}
+
+
+.loading-message {
+  color: #333;
+  font-size: 16px;
+  text-align: center;
+}
+
+.error-message {
+  color: red;
+  font-size: 16px;
+  text-align: center;
+}
+
+
+.profile-section {
+  margin-top: 20px;
+}
+
+
+.profile-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+
+.profile-details {
+  margin-bottom: 20px;
+}
+
+.profile-details p {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+
+.become-author-btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: royalblue;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.become-author-btn:hover {
+  background-color: #ffc242;
+}
+
+
+.book-form {
+  margin-top: 20px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+.form-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+
+.form-label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.form-textarea {
+  resize: vertical; 
+  min-height: 80px;
+}
+
+.submit-btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #ffc242;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: royalblue;
 }

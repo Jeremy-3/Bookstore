@@ -16,7 +16,7 @@ const Login = () => {
 
     setError(null);
 
-    // const handleLogout = () 
+    // const handleLogout = ()
     //     localStorage.removeItem('access_token')
     //     setIsLoggedIn(false)
     //   }
@@ -35,10 +35,14 @@ const Login = () => {
         const errorData = await response.json();
         console.log(errorData);
         setError(errorData.Message);
+      }
+      const data = await response.json();
+      const { access_token, role } = data;
+      localStorage.setItem("session", JSON.stringify(data));
+
+      if (role == "admin") {
+        navigate("/admin-dashboard");
       } else {
-        const data = await response.json();
-        localStorage.setItem("token", data.access_token);
-        console.log(data);
         navigate("/home");
       }
     } catch (error) {

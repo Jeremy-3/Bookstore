@@ -1,28 +1,51 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const navigate = useNavigate()
 
   useEffect(() => {
-    const token = localStorage.getItem("token")
-    if (token){
+    const sessionData = JSON.parse(localStorage.getItem("session"))
+
+   
+    if (sessionData && sessionData.access_token){
       setIsLoggedIn(true)
+    }
+    else{
+      setIsLoggedIn(false)
     }
   },[])
 
-  const handleLogout = (e) => {
-    localStorage.removeItem("token")
+ const handleLogout = (e) => {
+  e.preventDefault()
+ 
+  try{
+    const sessionData = JSON.parse(localStorage.getItem("session"))
+     
+    if(!sessionData){
+      console.error("User is not logged in.")
+      setIsLoggedIn(false);
+      navigate("/login")
+      return
+    }
+    localStorage.removeItem("session")
     setIsLoggedIn(false)
-  } 
-   
+    navigate("/login")
+  }catch(error){
+    console.error("Error during logout:", error)
+    alert("An error occurred during logout. Please try again.")
+  }
 
+ }
+   
+  
 
   return (
     <div className="navbar-container">
       <nav className="navbar">
-        <a href="#" className="logo">
+        <NavLink to="/home" className="logo">
              <img src="/book.png" alt="logo" />       
-        </a>
+        </NavLink>
 
         <ul className="nav-links">
           <li className="active">
@@ -47,9 +70,9 @@ const Navbar = () => {
             </NavLink>
           </div>
            ) : (
-            <div className="buttons">
-              <NavLink to="/login" className="btn" onClick={handleLogout}>Logout</NavLink>
-            </div>
+            <button className="buttons" onClick={handleLogout}>
+              <NavLink className="btn" >Logout</NavLink>
+            </button>
            )}
        
       </nav>

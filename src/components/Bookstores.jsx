@@ -8,16 +8,18 @@ const Bookstores = () => {
 
   // Fetch bookstores from the API
   useEffect(() => {
-    const token = localStorage.getItem("token");
+    const sessionData = JSON.parse(localStorage.getItem("session"));
 
-    if (token) {
+    if (sessionData) {
+      const {access_token} = sessionData
       setIsLoggedIn(true);
       const fetchBookstores = async () => {
         try {
+          
           const res = await fetch("/api/bookstores", {
             method: "GET",
             headers: {
-              Authorization: `Bearer ${token}`,
+              Authorization: `Bearer ${access_token}`,
             },
           });
 
