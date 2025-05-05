@@ -5,7 +5,7 @@ const Users = () => {
   const [profile, setProfile] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [error, setError] = useState(null);
-  const [showAuthorForm, setShowAuthorForm] = useState(false); 
+  const [showAuthorForm, setShowAuthorForm] = useState(false);
   const [isAuthor, setIsAuthor] = useState(false);
   const [authorFormData, setAuthorFormData] = useState({
     first_name: "",
@@ -26,7 +26,6 @@ const Users = () => {
 
   useEffect(() => {
     const sessionData = JSON.parse(localStorage.getItem("session"));
-
     if (sessionData) {
       const { access_token } = sessionData;
       setIsLoggedIn(true);
@@ -45,13 +44,17 @@ const Users = () => {
           }
 
           const data = await res.json();
-          console.log(data);
+          console.log("Profile data:", data);
           setProfile(data);
 
           
           if (data.is_author) {
             setIsAuthor(true);
-            setBookFormData((prev) => ({ ...prev, author_id: data.id }));
+            setBookFormData((prev) => ({ ...prev, author_id: data.author_id }));
+            // console.log(
+            //   "Updated bookFormData after profile fetch:",
+            //   bookFormData
+            // );
           }
         } catch (err) {
           console.error("Error fetching profile:", err);
@@ -62,6 +65,10 @@ const Users = () => {
       fetchProfile();
     }
   }, []);
+
+  useEffect(() => {
+    console.log("Updated bookFormData:", bookFormData);
+  }, [bookFormData]);
 
   const handleAuthorChange = (e) => {
     const { name, value } = e.target;
@@ -98,9 +105,15 @@ const Users = () => {
       }
 
       const data = await res.json();
+      console.log("Author creation response:", data);
       alert("You are now an author!");
       setIsAuthor(true);
       setBookFormData((prev) => ({ ...prev, author_id: data.author_id }));
+      console.log(
+        "Updated bookFormData after becoming an author:",
+        bookFormData
+      );
+
       setShowAuthorForm(false);
     } catch (err) {
       console.error("Error becoming an author:", err);
@@ -121,8 +134,16 @@ const Users = () => {
 
       const formattedData = {
         ...bookFormData,
-        publication_date: bookFormData.publication_date || "",
+        publication_date: bookFormData.publication_date || null,
       };
+
+      console.log("Submitting book data:", formattedData);
+
+      if (!formattedData.author_id) {
+        console.error("Missing author_id in bookFormData");
+        setError("Please try again after becoming an author.");
+        return;
+      }
 
       const res = await fetch("/api/books", {
         method: "POST",
@@ -134,9 +155,10 @@ const Users = () => {
       });
 
       if (!res.ok) {
-        throw new Error("Failed to create the book.");
+        const errorData = await res.json();
+        throw new Error(errorData.message || "Failed to create the book.");
       }
-      console.log(res);
+
       const data = await res.json();
       alert("Book created successfully!");
       navigate(`/books/${data.id}`);
