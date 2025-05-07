@@ -1209,3 +1209,291 @@ bookstores css */
 .submit-btn:hover {
   background-color: royalblue;
 }
+
+/* about page css */
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header */
+.about-header {
+  background: linear-gradient(to right, #f83600, #fe8c00);
+  color: #fff;
+  text-align: center;
+  padding: 60px 0;
+}
+
+.about-header .about-logo {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.about-header .tagline {
+  font-size: 18px;
+  opacity: 0.9;
+}
+
+/* Mission Section */
+.mission-section {
+  background-color: #fff;
+  padding: 60px 0;
+  text-align: center;
+}
+
+.mission-section h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.mission-section p {
+  font-size: 18px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Story Section */
+.story-section {
+  background-color: #f9f9f9;
+  padding: 60px 0;
+}
+
+.story-content {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.story-text {
+  flex: 1;
+}
+
+.story-text h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.story-text p {
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.story-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Team Section */
+.team-section {
+  background-color: #fff;
+  padding: 60px 0;
+  text-align: center;
+}
+
+.team-section h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+}
+
+.team-member {
+  text-align: center;
+}
+
+.member-avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 20px;
+  border: 4px solid #ffc242;
+  transition: transform 0.3s ease;
+}
+
+.team-member:hover .member-avatar {
+  transform: scale(1.1);
+}
+
+.team-member h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.team-member p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.team-member .bio {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+  background-color: #f9f9f9;
+  padding: 60px 0;
+  text-align: center;
+}
+
+.testimonials-section h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+.testimonial-slider {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.testimonial {
+  scroll-snap-align: start;
+  flex: 0 0 300px;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.quote {
+  font-size: 18px;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.author {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Call-to-Action Section */
+.cta-section {
+  background: linear-gradient(to right, #f83600, #fe8c00);
+  color: #fff;
+  text-align: center;
+  padding: 60px 0;
+}
+
+.cta-section h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.cta-section p {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 12px 30px;
+  background-color: #fff;
+  color: #ffc242;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 30px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: royalblue;
+  color: #fff;
+}
+
+/* Footer */
+.footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.footer p {
+  font-size: 14px;
+}
+.mission-section {
+  margin-bottom: 50px;
+}
+.story-section {
+  margin-bottom: 50px;
+}
+.team-section {
+  margin-bottom: 50px;
+}
+
+.heartbeat {
+  -webkit-animation: heartbeat 1.5s ease-in-out infinite both;
+  animation: heartbeat 1.5s ease-in-out infinite both;
+}
+
+@keyframes heartbeat {
+  from {
+    transform: scale(1);
+
+    transform-origin: center center;
+
+    animation-timing-function: ease-out;
+  }
+  10% {
+    transform: scale(0.91);
+
+    animation-timing-function: ease-in;
+  }
+  17% {
+    transform: scale(0.98);
+
+    animation-timing-function: ease-out;
+  }
+  33% {
+    transform: scale(0.87);
+
+    animation-timing-function: ease-in;
+  }
+  45% {
+    transform: scale(1);
+
+    animation-timing-function: ease-out;
+  }
+}
+.vibrate-1 {
+  animation: vibrate-1 0.3s linear infinite both;
+}
+@keyframes vibrate-1 {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
