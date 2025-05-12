@@ -12,8 +12,7 @@ const About = () => {
     });
   }, []);
   return (
-    <div className="about-page">
-      {/* Header Section */}
+    <div className="about-page">      
       <header className="about-header">
         <div className="about-container">
           <h1 className="about-logo">Our Story</h1>
