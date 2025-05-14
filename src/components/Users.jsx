@@ -106,7 +106,7 @@ const Users = () => {
 
       const data = await res.json();
       console.log("Author creation response:", data);
-      alert("You are now an author!");
+      alert("You are now an author,Please Reload page to create a Book !");
       setIsAuthor(true);
       setBookFormData((prev) => ({ ...prev, author_id: data.author_id }));
       console.log(

@@ -184,7 +184,7 @@ const Contact = () => {
       {/* Footer */}
       <footer className="cont-footer">
         <div className="cont-container">
-          <p>&copy; 2023 [Your Platform Name]. All rights reserved.</p>
+          <p>&copy; 2023 WebBookstore. All rights reserved.</p>
         </div>
       </footer>
     </div>
