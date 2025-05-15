@@ -80,7 +80,6 @@ This project will be appropriate for small to medium-sized bookstores who wish t
 ## Deployment
 
  > [!NOTE]
-
  > Not Yet DEPLOYED ! But Soon though.
 
 
@@ -105,7 +104,6 @@ This project will be appropriate for small to medium-sized bookstores who wish t
 # Installation ⚙️
 
  > [!NOTE]
-
  > The following steps are to be followed once this notice is gone so for now BE PATIENT !.
 
 ## Prerequisites
