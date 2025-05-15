@@ -79,9 +79,9 @@ This project will be appropriate for small to medium-sized bookstores who wish t
 
 ## Deployment
 
- >[!NOTE]
+ > [!NOTE]
 
- >Not Yet DEPLOYED ! But Soon though.
+ > Not Yet DEPLOYED ! But Soon though.
 
 
 # 📸 ScreenShots
@@ -104,9 +104,9 @@ This project will be appropriate for small to medium-sized bookstores who wish t
 
 # Installation ⚙️
 
- >[!NOTE]
+ > [!NOTE]
 
- >The following steps are to be followed once this notice is gone so for now BE PATIENT !.
+ > The following steps are to be followed once this notice is gone so for now BE PATIENT !.
 
 ## Prerequisites
 - Python 3.x 🐍
