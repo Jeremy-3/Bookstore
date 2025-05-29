@@ -153,7 +153,7 @@ This project will be appropriate for small to medium-sized bookstores who wish t
 
 - Open a Pull Request
 
-# 📄 lisences
+# 📄 lisenses
 
 <a name="cls"></a>
 
