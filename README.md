@@ -107,13 +107,12 @@ This project will be appropriate for small to medium-sized bookstores who wish t
  > The following steps are to be followed once this notice is gone so for now BE PATIENT !.
 
 ## Prerequisites
-- ![Node.js](https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/node-dot-js.svg){width=20 height=20}
-
-- ![Node.js](URL){width=20 height=20}
+- NPM and Node (latest version preffered)
 
 - Vite-React  ⚛️
 
-- ![Tailwind](https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg)
+- TailwindCss and CSS
+
 
 
 ## Steps
