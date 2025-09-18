@@ -169,7 +169,65 @@ const UsersPanel = () => {
       console.error("Error deleting user:", err);
       setError(err.message);
     }
+  }; const handleBanUser = async (id) => {
+    try {
+      const sessionData = JSON.parse(localStorage.getItem("session"));
+      if (!sessionData) {
+        throw new Error("User is not logged in.");
+      }
+      const { access_token } = sessionData;
+      const res = await fetch(`/api/users/${id}/ban`, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${access_token}`,
+        },
+      });
+      if (!res.ok) {
+        const errorData = await res.json();
+        throw new Error(errorData.message || "Failed to ban user.");
+      }
+      setUsers((prevUsers) =>
+        prevUsers.map((user) =>
+          user.id === id ? { ...user, is_banned: true } : user
+        )
+      );
+      alert("User banned successfully!");
+    } catch (err) {
+      console.error("Error banning user:", err);
+      setError(err.message);
+    }
   };
+
+  // Un-ban a user
+  const handleUnbanUser = async (id) => {
+    try {
+      const sessionData = JSON.parse(localStorage.getItem("session"));
+      if (!sessionData) {
+        throw new Error("User is not logged in.");
+      }
+      const { access_token } = sessionData;
+      const res = await fetch(`/api/users/${id}/un-ban`, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${access_token}`,
+        },
+      });
+      if (!res.ok) {
+        const errorData = await res.json();
+        throw new Error(errorData.message || "Failed to unban user.");
+      }
+      setUsers((prevUsers) =>
+        prevUsers.map((user) =>
+          user.id === id ? { ...user, is_banned: false } : user
+        )
+      );
+      alert("User unbanned successfully!");
+    } catch (err) {
+      console.error("Error unbanning user:", err);
+      setError(err.message);
+    }
+  };
+
 
   return (
     <div className="admin-panel">
@@ -350,16 +408,6 @@ const UsersPanel = () => {
                 <option value="user">User</option>
                 <option value="admin">Admin</option>
               </select>
-            </label>
-            <label className="form-label">
-              Banned:
-              <input
-                type="checkbox"
-                name="is_banned"
-                checked={editFormData.is_banned}
-                onChange={handleInputChange}
-                className="form-input"
-              />
             </label>
             <div className="form-actions">
               <button

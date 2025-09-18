@@ -16,7 +16,7 @@ const Navbar = () => {
       if (sessionData.role === "admin") {
         setIsAdmin(true);
       }else{
-        setIsAdmin(true)
+        setIsAdmin(false)
       }
     } else {
       setIsLoggedIn(false);

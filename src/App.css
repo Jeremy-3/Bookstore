@@ -680,7 +680,7 @@
 .home-two .book .book-title {
   position: absolute;
   bottom: 10px;
-  left: 30%;
+  left: 50%;
   transform: translateX(-50%);
   background-color: rgba(0, 0, 0, 0.7);
   color: white;
@@ -1813,4 +1813,35 @@ bookstores css */
   font-size: 16px;
   text-align: center;
   margin-top: 20px;
+}
+
+
+/* allowing media visibility */
+@media (max-width: 480px) {
+  .home-top {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .home-two {
+    grid-template-columns: 1fr;
+  }
+
+  .form {
+    max-width: 100%;
+    padding: 15px;
+  }
+
+  .btn {
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+
+  .book-title {
+    font-size: 16px;
+  }
+
+  .navbar-container {
+    padding: 8px;
+  }
 }

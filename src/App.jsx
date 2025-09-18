@@ -4,8 +4,8 @@ import { Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar.jsx';
 import Loading from './components/Loading.jsx';
 import Home from './components/Home.jsx';
-import Signup from './components/Signup.jsx';
-import Login from './components/Login.jsx';
+import Signup from './components/auth/Signup.jsx';
+import Login from './components/auth/Login.jsx';
 import About from './components/About.jsx';
 import Contact from './components/Contact.jsx';
 import Authors from './components/Authors.jsx';
@@ -13,7 +13,7 @@ import Books from './components/Books.jsx';
 import Users from './components/Users.jsx';
 import Bookstores from './components/Bookstores.jsx';
 import BookFromStore from './components/BookFromStore.jsx';
-import Admin from './components/Admin.jsx';
+import Admin from './components/admin/Admin.jsx';
 
 function App() {
   const [loading, setLoading] = useState(true);
