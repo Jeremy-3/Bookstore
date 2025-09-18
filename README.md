@@ -79,9 +79,8 @@ This project will be appropriate for small to medium-sized bookstores who wish t
 
 ## Deployment
 
- >[!NOTE]
-
- >Not Yet DEPLOYED ! But Soon though.
+ > [!NOTE]
+ > Not Yet DEPLOYED ! But Soon though.
 
 
 # 📸 ScreenShots
@@ -104,18 +103,17 @@ This project will be appropriate for small to medium-sized bookstores who wish t
 
 # Installation ⚙️
 
- >[!NOTE]
-
- >The following steps are to be followed once this notice is gone so for now BE PATIENT !.
+ > [!NOTE]
+ > The following steps are to be followed once this notice is gone so for now BE PATIENT !.
 
 ## Prerequisites
-- Python 3.x 🐍
+- NPM and Node (latest version preffered)
 
 - Vite-React  ⚛️
 
-- PostgreSQL database 🐘
+- TailwindCss and CSS
 
-- Docker(option,for containerization)
+
 
 ## Steps
 
@@ -155,7 +153,7 @@ This project will be appropriate for small to medium-sized bookstores who wish t
 
 - Open a Pull Request
 
-# 📄 lisences
+# 📄 lisenses
 
 <a name="cls"></a>
 
