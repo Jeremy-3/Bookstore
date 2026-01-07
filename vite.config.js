@@ -8,7 +8,7 @@ export default defineConfig({
     proxy: {
       
       '/api': {
-        target: 'https://bookstore-backend-0htz.onrender.com/', 
+        target: 'https://bookstore-backend-0htz.onrender.com', 
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''), 
       },
