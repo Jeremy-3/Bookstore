@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, NavLink } from "react-router-dom";
+// const API_URL = import.meta.env.VITE_API_URL;
 
 const Book = () => {
   const { id } = useParams();

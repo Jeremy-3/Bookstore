@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, NavLink } from "react-router-dom";
 
-
-
 const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
@@ -15,8 +13,8 @@ const Navbar = () => {
       setIsLoggedIn(true);
       if (sessionData.role === "admin") {
         setIsAdmin(true);
-      }else{
-        setIsAdmin(false)
+      } else {
+        setIsAdmin(false);
       }
     } else {
       setIsLoggedIn(false);
@@ -49,7 +47,7 @@ const Navbar = () => {
   return (
     <div className="navbar-container">
       <nav className="navbar">
-        <NavLink to="/home" className="logo">
+        <NavLink to="/" className="logo">
           <img src="/book.png" alt="logo" />
         </NavLink>
 
@@ -60,7 +58,7 @@ const Navbar = () => {
                 Admin Dashboard
               </NavLink>
             ) : (
-              <NavLink to="/home" className="active">
+              <NavLink to="/" className="active">
                 Home
               </NavLink>
             )}

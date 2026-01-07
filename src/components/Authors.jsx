@@ -54,7 +54,7 @@ const Authors = () => {
     <section className="auth-top">
       <div className="auth-btn">
         <button className="btn">
-          <NavLink to="/home">Books</NavLink>
+          <NavLink to="/">Books</NavLink>
         </button>
         <button className="btn">
           <NavLink to="/bookstores">BookStores</NavLink>

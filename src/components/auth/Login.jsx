@@ -43,7 +43,7 @@ const Login = () => {
       if (role == "admin") {
         navigate("/admin-dashboard");
       } else {
-        navigate("/home");
+        navigate("/");
       }
     } catch (error) {
       console.error("Error", error);

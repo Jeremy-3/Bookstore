@@ -11,11 +11,10 @@ const Bookstores = () => {
     const sessionData = JSON.parse(localStorage.getItem("session"));
 
     if (sessionData) {
-      const {access_token} = sessionData
+      const { access_token } = sessionData;
       setIsLoggedIn(true);
       const fetchBookstores = async () => {
         try {
-          
           const res = await fetch("/api/bookstores", {
             method: "GET",
             headers: {
@@ -52,14 +51,13 @@ const Bookstores = () => {
     <section className="bookstore-top">
       <div className="bs-btn">
         <button className="btn-b">
-          <NavLink to="/home">Books</NavLink>
+          <NavLink to="/">Books</NavLink>
         </button>
         <button className="btn-b">
           <NavLink to="/author">Author</NavLink>
         </button>
       </div>
-         
-      
+
       <div className="search-text-b">
         <input
           type="text"
@@ -69,7 +67,6 @@ const Bookstores = () => {
         />
       </div>
 
-      
       <div className="bookstore-grid">
         {isLoggedIn ? (
           filteredBookstores && filteredBookstores.length > 0 ? (
@@ -79,7 +76,9 @@ const Bookstores = () => {
                 <div className="store-info">
                   <h2 className="store-name">{store.name}</h2>
                   <p className="store-location">📍 {store.location}</p>
-                  <p className="store-date">📅 Established: {formatDate(store.established_date)}</p>
+                  <p className="store-date">
+                    📅 Established: {formatDate(store.established_date)}
+                  </p>
                 </div>
 
                 {/* Inventory Section */}
@@ -88,12 +87,19 @@ const Bookstores = () => {
                   <ul className="inventory-list">
                     {store.inventory.map((item) => (
                       <li key={item.book_id} className="inventory-item">
-                        <NavLink to={`/books/${item.book_id}`} className="book-title">
+                        <NavLink
+                          to={`/books/${item.book_id}`}
+                          className="book-title"
+                        >
                           Book ID: {item.book_id}
                         </NavLink>
-                        <span className="price">💰 ${item.price.toFixed(2)}</span>
+                        <span className="price">
+                          💰 ${item.price.toFixed(2)}
+                        </span>
                         <span className="stock">
-                          {item.stock > 0 ? `📦 In Stock (${item.stock})` : "❌ Out of Stock"}
+                          {item.stock > 0
+                            ? `📦 In Stock (${item.stock})`
+                            : "❌ Out of Stock"}
                         </span>
                       </li>
                     ))}
