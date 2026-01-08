@@ -7,38 +7,46 @@ import { FaWhatsapp } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa6";
 const Home = () => {
   const [books, setBooks] = useState([]);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [selectedGenre, setSelectedGenre] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
 
+  const sessionData = JSON.parse(localStorage.getItem("session"));
+  const isLoggedIn = Boolean(sessionData?.access_token);
+
   useEffect(() => {
-    const sessionData = JSON.parse(localStorage.getItem("session"));
+  const fetchBooks = async () => {
+    // const sessionData = JSON.parse(localStorage.getItem("session"));
 
-    if (sessionData) {
-      const {access_token} = sessionData
-      setIsLoggedIn(true);
-      const fetchBooks = async () => {
-        try {
-          const res = await fetch("/api/books", {
-            method: "GET",
-            headers: {
-              Authorization: `Bearer ${access_token}`,
-            },
-          });
-
-          if (!res.ok) {
-            throw new Error("Network response was not okay ");
-          }
-          const data = await res.json();
-          console.log(data);
-          setBooks(data);
-        } catch (error) {
-          console.error("Error ,Could not fetch books", error);
-        }
-      };
-      fetchBooks();
+    if (!sessionData?.access_token) {
+      return;
     }
-  }, []);
+
+    try {
+      const res = await fetch("/api/books", {
+        headers: {
+          Authorization: `Bearer ${sessionData.access_token}`,
+        },
+      });
+
+      if (res.status === 401) {
+        throw new Error("Session expired. Please log in again.");
+      }
+
+      if (!res.ok) {
+        throw new Error("Failed to fetch books");
+      }
+
+      const data = await res.json();
+      setBooks(data);
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+
+  fetchBooks();
+}, []);
+
   const filteredBooks = books
     .filter((book) =>
       book.title.toLowerCase().includes(searchQuery.toLowerCase())
