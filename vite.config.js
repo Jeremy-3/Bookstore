@@ -3,16 +3,20 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
-export default defineConfig({
-  server: {
-    proxy: {
+// export default defineConfig({
+//   server: {
+//     proxy: {
       
-      '/api': {
-        target: 'https://bookstore-backend-0htz.onrender.com', 
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ''), 
-      },
-    },
-  },
-  plugins: [react(),tailwindcss()],
+//       '/api': {
+//         target: 'https://bookstore-backend-0htz.onrender.com', 
+//         changeOrigin: true,
+//         rewrite: (path) => path.replace(/^\/api/, ''), 
+//       },
+//     },
+//   },
+//   plugins: [react(),tailwindcss()],
+// })
+
+export default defineConfig({
+  plugins: [react(), tailwindcss()],
 })

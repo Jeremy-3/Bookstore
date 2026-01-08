@@ -1,7 +1,7 @@
 {
   "rewrites": [
     {
-      "source": "/:path*",
+      "source": "/api/:path*",
       "destination": "https://bookstore-backend-0htz.onrender.com/:path*"
     }
   ]
