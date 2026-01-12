@@ -24,6 +24,8 @@
 
 8. [__Contributions & Licenses__](cls)
 
+9. [__links__](cls)
+
 
 # Introduction 🌟
 
@@ -158,3 +160,12 @@ This project will be appropriate for small to medium-sized bookstores who wish t
 <a name="cls"></a>
 
 This project is licensed under the MIT License . See the [LICENSE](https://opensource.org/license/mit) file for details.
+
+---
+
+## 🔗 Links
+
+- **Live Demo**: [BookStore Application](bookstore-mocha-iota.vercel.app)
+- **Backend Repository**: [Bookstre API](https://github.com/Jeremy-3/Bookstore-backend)
+
+---
